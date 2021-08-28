@@ -279,19 +279,3 @@ body {
 .home a:last-of-type:hover {
   background-color: rgba(0, 0, 255, 0.5);
 }
-/**************** <Boundary/> ****************/
-.boundary {
-  width: 90vw;
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.boundary__title {
-  font-size: 10vw;
-  font-weight: 700;
-}
-.boundary__description {
-  font-size: 5vw;
-}
