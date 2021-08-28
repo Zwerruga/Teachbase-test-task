@@ -1,7 +1,7 @@
 
 # Тестовое задание Frontend Teachbase
 
-Сделать удобные для пользователя формы регистрации и авторизации. Обязательно использование React.
+Сделать удобные для пользователя формы регистрации и авторизации. Обязательно использование React.<br/>
 Для сравнения скорости загрузки<br/>
 [React.js deploy](https://wandering-savory-marionberry.glitch.me/login)<br/>
 Для локального просмотра:<br/>
@@ -15,8 +15,10 @@ cd next && npm i && npm run build && npm start
 ```
 
 :ballot_box_with_check: Данные формы авторизации отправляются на [ec2-18-117-84-227.us-east-2.compute.amazonaws.com:3000/login](http://ec2-18-117-84-227.us-east-2.compute.amazonaws.com/login) методом POST.	<br/>	
+
 ![Login page](https://i.ibb.co/5LYmt1q/Peek-2021-08-29-00-23.gif)<br/>
 :ballot_box_with_check: Форма регистрации отправляется на [ec2-18-117-84-227.us-east-2.compute.amazonaws.com:3000/register](http://ec2-18-117-84-227.us-east-2.compute.amazonaws.com/register) методом POST.<br/>
+
   ![Register page](https://i.ibb.co/PtQC5xg/Peek-2021-08-29-00-45.gif)<br/>      
 :heavy_check_mark: login - обязательное поле не менее 4 символов<br/>
 :heavy_check_mark: password - обязательное поле не менее 6 символов<br/>
