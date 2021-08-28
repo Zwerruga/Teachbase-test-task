@@ -40,7 +40,7 @@ export default memo(function CustomPasswordInput(props) {
       ) : (
         <CustomInput type="text" {...props} />
       )}
-      <div class="toggle-show" onClick={() => setHide((s) => !s)}>
+      <div className="toggle-show" onClick={() => setHide((s) => !s)}>
         {hide ? (
           <i className="fas fa-eye"></i>
         ) : (

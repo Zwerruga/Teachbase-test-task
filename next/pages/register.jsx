@@ -18,11 +18,7 @@ export default memo(function Register() {
   const [errors, setErrors] = useState({});
   const handleSubmit = async () => {
     const errorsInForm = registerValidator(registerData);
-    if (
-      errorsInForm &&
-      Object.keys(errorsInForm).length === 0 &&
-      errorsInForm.constructor === Object
-    )
+    if (errorsInForm && Object.keys(errorsInForm).length !== 0)
       setErrors({ ...errorsInForm });
     else {
       await postJSON(
