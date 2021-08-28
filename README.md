@@ -1,70 +1,51 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Тестовое задание Frontend Teachbase
 
-## Available Scripts
+Сделать удобные для пользователя формы регистрации и авторизации. Обязательно использование React.
+Для сравнения скорости загрузки
+[React.js deploy](https://wandering-savory-marionberry.glitch.me/login)
+Для локального просмотра:
+```bash
+npm i && npm start
+```
+[Next.js deploy](https://opposite-gem-crawdad.glitch.me)
+Для локального просмотра:
+```bash
+cd next && npm i && npm run build && npm start
+```
 
-In the project directory, you can run:
+:ballot_box_with_check: Данные формы авторизации отправляются на [ec2-18-117-84-227.us-east-2.compute.amazonaws.com:3000/login](http://ec2-18-117-84-227.us-east-2.compute.amazonaws.com/login) методом POST.		
+![Login page](https://i.ibb.co/5LYmt1q/Peek-2021-08-29-00-23.gif)
+:ballot_box_with_check: Форма регистрации отправляется на [ec2-18-117-84-227.us-east-2.compute.amazonaws.com:3000/register](http://ec2-18-117-84-227.us-east-2.compute.amazonaws.com/register) методом POST.	
+  ![Register page](https://i.ibb.co/PtQC5xg/Peek-2021-08-29-00-45.gif)	      
+:heavy_check_mark: login - обязательное поле не менее 4 символов
+:heavy_check_mark: password - обязательное поле не менее 6 символов
+:heavy_check_mark: email - обязательное поле, валидный email
 
-### `npm start`
+             																																					  
+## ⚙️ General Info
+![Javascript](https://res.cloudinary.com/practicaldev/image/fetch/s--yXd1I4K0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://img.shields.io/badge/Javascript-323330%3Fstyle%3Dfor-the-badge%26logo%3Djavascript%26logoColor%3DF7DF1E)![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)![React_Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)![React Hooks](https://img.shields.io/badge/React_Hooks-778899?style=for-the-badge&logo=react&logoColor=61DAFB)![Fetch](https://img.shields.io/badge/Fetch-DC143C?style=for-the-badge&logo=javascript&logoColor=white)![Next.js](https://img.shields.io/static/v1?label=&message=Next.js&color=%23666&style=for-the-badge&logo=vercel&logoColor=black)
+Fetch использовал для работы с API, [файл с кодом](https://github.com/Zwerruga/Teachbase-test-task/blob/main/src/utils/apiCalls.js) . Вызов выполняется при клике на кнопку. 
+```javascript 
+Resolve = () => redirect('/');
+Reject = (error) => show(error);
+```
+Запрос не выполняется, если форма не прошла [валидацию](https://github.com/Zwerruga/Teachbase-test-task/blob/main/src/utils/registerValidator.js).
+Для маршрутизации react использовался react-router.
+Загрузка страниц была оптимизирована с помощью ***React.lazy***
+```javascript
+const Login = React.lazy(() => import("./pages/login.jsx"));
+const Register = React.lazy(() => import("./pages/register.jsx"));
+const Home = React.lazy(() => import("./pages/home.jsx"));
+```
+Для защиты от возможных ошибок сервера, использовал [предохранитель **<**ErrorBoundary**/>**](https://github.com/Zwerruga/Teachbase-test-task/blob/main/src/components/ErrorBoundary.jsx)
+Структура поделена на [страницы](https://github.com/Zwerruga/Teachbase-test-task/tree/main/src/pages) и [компоненты](https://github.com/Zwerruga/Teachbase-test-task/tree/main/src/components), что позже помогло перенести [проект в Next.js](https://opposite-gem-crawdad.glitch.me) для ускорения загрузки страниц.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Обратите внимание:
+ - Используются только функциональные компоненты и хуки
+ - **HOC** [< **CustomPasswordInput.**/>](https://github.com/Zwerruga/Teachbase-test-task/blob/main/src/components/CustomPasswordInput.jsx) для дополнения функциональности [<**CustomInput**/>](https://github.com/Zwerruga/Teachbase-test-task/blob/main/src/components/CustomInput.jsx) возможностью показа и скрытия пароля.
+ - Для предотвращения лишнего рендеринга компонентов используется **React.memo**.
+# 🔮 In Future ⏳
+- Покрыть тестами код 
+ - Добавить возможность авторизации через сторонние сервисы 
+ - Использовать Typescript
